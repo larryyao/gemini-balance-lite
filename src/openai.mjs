@@ -149,7 +149,7 @@ async function handleEmbeddings (req, apiKey) {
   return new Response(body, fixCors(response));
 }
 
-const DEFAULT_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-3.5-flash-lite";
 async function handleCompletions (req, apiKey) {
   let model = DEFAULT_MODEL;
   switch (true) {
