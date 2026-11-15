@@ -27,6 +27,7 @@ export async function handleRequest(request) {
 
   try {
     const headers = new Headers();
+    console.log('request.headers',request.headers);
     for (const [key, value] of request.headers.entries()) {
       if (key.trim().toLowerCase() === 'x-goog-api-key') {
         const apiKeys = value.split(',').map(k => k.trim()).filter(k => k);
