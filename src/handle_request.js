@@ -30,11 +30,13 @@ export async function handleRequest(request) {
     for (const [key, value] of request.headers.entries()) {
       if (key.trim().toLowerCase() === 'x-goog-api-key') {
         const apiKeys = value.split(',').map(k => k.trim()).filter(k => k);
+        console.log('apiKeys',apiKeys);
         if (apiKeys.length > 0) {
           const selectedKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
           console.log(`Gemini Selected API Key: ${selectedKey}`);
           headers.set('x-goog-api-key', selectedKey);
         }
+        
       } else {
         if (key.trim().toLowerCase()==='content-type')
         {
